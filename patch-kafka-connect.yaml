@@ -1,0 +1,16 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: cp-kafka-connect-server
+        image: johnmcgovern/kafka-connect-splunk:latest
+        env:
+        - name: CONNECT_KEY_CONVERTER
+          value: org.apache.kafka.connect.storage.StringConverter
+        - name: CONNECT_VALUE_CONVERTER
+          value: org.apache.kafka.connect.storage.StringConverter
+        - name: CONNECT_BOOTSTRAP_SERVERS
+          value: confluent-oss-cp-kafka-headless:9092
+        - name: CONNECT_PLUGIN_PATH
+          value: /usr/share/java
+
